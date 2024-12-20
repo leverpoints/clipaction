@@ -8,11 +8,14 @@ import Logos from "@/components/logos";
 import Particles from "@/components/ui/particles";
 import Header from "@/components/header";
 import Footer from "@/components/footer";
+import HowItWorks from "@/components/how-it-works";
 
 export default function Home() {
   const [name, setName] = useState<string>("");
   const [email, setEmail] = useState<string>("");
   const [loading, setLoading] = useState<boolean>(false);
+  const [currentApp, setCurrentApp] = useState("");
+  const [usageType, setUsageType] = useState("");
 
   const handleEmailChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setEmail(event.target.value);
@@ -20,6 +23,14 @@ export default function Home() {
 
   const handleNameChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setName(event.target.value);
+  };
+
+  const handleAppChange = (value: string) => {
+    setCurrentApp(value);
+  };
+
+  const handleUsageChange = (value: string) => {
+    setUsageType(value);
   };
 
   const isValidEmail = (email: string) => {
@@ -111,18 +122,24 @@ export default function Home() {
   return (
     <main className="flex min-h-screen flex-col items-center overflow-x-clip pt-12 md:pt-24">
       <section className="flex flex-col items-center px-4 sm:px-6 lg:px-8">
-        <Header />
+        {/* <Header /> */}
 
         <CTA />
 
         <Form
           name={name}
           email={email}
+          currentApp={currentApp}
+          usageType={usageType}
           handleNameChange={handleNameChange}
           handleEmailChange={handleEmailChange}
+          handleAppChange={handleAppChange}
+          handleUsageChange={handleUsageChange}
           handleSubmit={handleSubmit}
           loading={loading}
         />
+
+        <HowItWorks />
 
         <Logos />
       </section>

@@ -6,12 +6,23 @@ import { Input } from "@/components/ui/input";
 import { FaArrowRightLong } from "react-icons/fa6";
 import { EnhancedButton } from "@/components/ui/enhanced-btn";
 import { containerVariants, itemVariants } from "@/lib/animation-variants";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 
 interface FormProps {
   name: string;
   email: string;
+  currentApp: string;
+  usageType: string;
   handleNameChange: (e: ChangeEvent<HTMLInputElement>) => void;
   handleEmailChange: (e: ChangeEvent<HTMLInputElement>) => void;
+  handleAppChange: (value: string) => void;
+  handleUsageChange: (value: string) => void;
   handleSubmit: () => void;
   loading: boolean;
 }
@@ -19,8 +30,12 @@ interface FormProps {
 export default function Form({
   name,
   email,
+  currentApp,
+  usageType,
   handleNameChange,
   handleEmailChange,
+  handleAppChange,
+  handleUsageChange,
   handleSubmit,
   loading,
 }: FormProps) {
@@ -36,6 +51,7 @@ export default function Form({
           placeholder="Your Name"
           value={name}
           onChange={handleNameChange}
+          className="placeholder:text-muted-foreground"
         />
       </motion.div>
       <motion.div variants={itemVariants}>
@@ -44,7 +60,35 @@ export default function Form({
           placeholder="Your Email Address"
           value={email}
           onChange={handleEmailChange}
+          className="placeholder:text-muted-foreground"
         />
+      </motion.div>
+      <motion.div variants={itemVariants}>
+        <Select value={currentApp} onValueChange={handleAppChange}>
+          <SelectTrigger className="text-muted-foreground">
+            <SelectValue placeholder="What todo app do you use today?" />
+          </SelectTrigger>
+          <SelectContent>
+            <SelectItem value="todoist">Todoist</SelectItem>
+            <SelectItem value="linear">Linear</SelectItem>
+            <SelectItem value="jira">JIRA</SelectItem>
+            <SelectItem value="things">Things</SelectItem>
+            <SelectItem value="ticktick">TickTick</SelectItem>
+            <SelectItem value="other">Other</SelectItem>
+          </SelectContent>
+        </Select>
+      </motion.div>
+      <motion.div variants={itemVariants}>
+        <Select value={usageType} onValueChange={handleUsageChange}>
+          <SelectTrigger className="text-muted-foreground">
+            <SelectValue placeholder="Do you use your todo app for work or personal?" />
+          </SelectTrigger>
+          <SelectContent>
+            <SelectItem value="work">Work</SelectItem>
+            <SelectItem value="personal">Personal</SelectItem>
+            <SelectItem value="both">Both</SelectItem>
+          </SelectContent>
+        </Select>
       </motion.div>
       <motion.div variants={itemVariants}>
         <EnhancedButton
@@ -57,7 +101,7 @@ export default function Form({
           {loading ? "Loading..." : "Join Waitlist!"}
         </EnhancedButton>
       </motion.div>
-      <motion.div
+      {/* <motion.div
         variants={itemVariants}
         className="mt-4 flex w-full items-center justify-center gap-1 text-muted-foreground">
         <p>For any queries, reach out at </p>
@@ -74,7 +118,7 @@ export default function Form({
           target="_blank">
           <FaGithub className="ml-0.5 h-5 w-5 transition-all duration-200 ease-linear hover:text-yellow-200" />
         </Link>
-      </motion.div>
+      </motion.div> */}
     </motion.div>
   );
 }

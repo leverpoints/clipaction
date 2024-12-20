@@ -28,16 +28,26 @@ export default function CTA() {
       />
 
       <motion.div variants={itemVariants}>
+        <AnimatedShinyText className="flex items-center justify-center text-center tracking-tighter sm:text-6xl px-4 py-1">
+          <span>ClipAction</span>
+        </AnimatedShinyText>
+      </motion.div>
+
+      <div className="mb-3"></div>
+
+      <motion.div variants={itemVariants}>
         <TextBlur
           className="text-center text-3xl font-medium tracking-tighter sm:text-5xl"
-          text="A Simple Next.js Waitlist Template with Notion as CMS"
+          text="Create todos by just taking a screenshot"
         />
       </motion.div>
+
+      <div className="mb-6"></div>
 
       <motion.div variants={itemVariants}>
         <TextBlur
           className="mx-auto max-w-[27rem] pt-1.5 text-center text-base text-zinc-300 sm:text-lg"
-          text="Join the waitlist to get early access of the product and recieve updates on the progress!"
+          text="Join the waitlist to get early access of the product!"
           duration={0.8}
         />
       </motion.div>

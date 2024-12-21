@@ -70,9 +70,13 @@ export default function Form({
           </SelectTrigger>
           <SelectContent>
             <SelectItem value="todoist">Todoist</SelectItem>
-            <SelectItem value="linear">Linear</SelectItem>
             <SelectItem value="jira">JIRA</SelectItem>
+            <SelectItem value="linear">Linear</SelectItem>
+            <SelectItem value="notion">Notion</SelectItem>
             <SelectItem value="things">Things</SelectItem>
+            <SelectItem value="asana">Asana</SelectItem>
+            <SelectItem value="clickup">ClickUp</SelectItem>
+            <SelectItem value="monday">Monday.com</SelectItem>
             <SelectItem value="ticktick">TickTick</SelectItem>
             <SelectItem value="other">Other</SelectItem>
           </SelectContent>

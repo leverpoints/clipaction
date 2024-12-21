@@ -7,9 +7,9 @@ import { Analytics } from "@vercel/analytics/react";
 const FigtreeFont = Figtree({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Next.js + Notion — Waitlist Template",
+  title: "ClipAction - Fastest way to capture todos",
   description:
-    "A simple Next.js waitlist template with Notion as CMS and Resend to send emails created with React Email and Upstash Redis for rate limiting. Deployed on Vercel.",
+    "ClipAction is the fastest way to capture todos. It uses AI to convert your screenshots into actionable todos.",
 };
 
 export default function RootLayout({

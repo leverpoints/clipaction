@@ -11,7 +11,7 @@ const plans = {
       monthly: "$0",
       yearly: "$0",
     },
-    description: "Perfect for getting started",
+    description: "Free, it is free free",
     features: [
       "10 screenshots per month",
       "Basic AI processing",
@@ -22,12 +22,12 @@ const plans = {
   premium: {
     name: "Premium",
     price: {
-      monthly: "$5",
-      yearly: "$48",
+      monthly: "$3",
+      yearly: "$29",
     },
     description: "1 cup of coffee per month",
     features: [
-      "100 screenshots per month",
+      "500 screenshots per month",
       "Advanced AI processing",
       "Integration with all todo apps",
       "30-day history",

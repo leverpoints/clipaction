@@ -66,7 +66,7 @@ export default function Form({
       <motion.div variants={itemVariants}>
         <Select value={currentApp} onValueChange={handleAppChange}>
           <SelectTrigger className="text-muted-foreground">
-            <SelectValue placeholder="What todo app do you use today?" />
+            <SelectValue placeholder="What is your primary todo app?" />
           </SelectTrigger>
           <SelectContent>
             <SelectItem value="todoist">Todoist</SelectItem>

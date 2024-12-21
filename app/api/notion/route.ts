@@ -1,26 +1,44 @@
 import { Client } from "@notionhq/client";
 import { NextResponse } from "next/server";
 
-export async function POST(request: Request) {
-  const body = await request.json();
+const notion = new Client({
+  auth: process.env.NOTION_API_KEY,
+});
+
+export async function POST(req: Request) {
   try {
-    const notion = new Client({ auth: process.env.NOTION_SECRET });
+    const { name, email, currentApp, usageType } = await req.json();
     const response = await notion.pages.create({
       parent: {
-        database_id: `${process.env.NOTION_DB}`,
+        database_id: process.env.NOTION_DATABASE_ID!,
       },
       properties: {
-        Email: {
-          type: "email",
-          email: body?.email,
-        },
         Name: {
-          type: "title",
           title: [
             {
-              type: "text",
               text: {
-                content: body?.name,
+                content: name,
+              },
+            },
+          ],
+        },
+        Email: {
+          email: email,
+        },
+        Apps: {
+          rich_text: [
+            {
+              text: {
+                content: currentApp || "Not specified",
+              },
+            },
+          ],
+        },
+        Usage: {
+          rich_text: [
+            {
+              text: {
+                content: usageType || "Not specified",
               },
             },
           ],
@@ -28,12 +46,12 @@ export async function POST(request: Request) {
       },
     });
 
-    if (!response) {
-      throw new Error("Failed to add email to Notion");
-    }
-
-    return NextResponse.json({ success: true }, { status: 200 });
+    return NextResponse.json({ message: "Success!" }, { status: 200 });
   } catch (error) {
-    return NextResponse.json({ success: false }, { status: 500 });
+    console.error(error);
+    return NextResponse.json(
+      { error: "Internal Server Error" },
+      { status: 500 }
+    );
   }
 }

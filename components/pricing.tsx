@@ -97,7 +97,9 @@ export default function Pricing() {
               <span className="text-4xl font-bold">
                 {isYearly ? plan.price.yearly : plan.price.monthly}
               </span>
-              {key !== "free" && <span className="text-muted-foreground">/month</span>}
+              <span className="text-muted-foreground">
+                {isYearly ? "/year" : "/month"}
+              </span>
             </div>
             <p className="text-muted-foreground mb-6">{plan.description}</p>
             <ul className="space-y-3 mb-8">

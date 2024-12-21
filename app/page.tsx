@@ -9,6 +9,7 @@ import Particles from "@/components/ui/particles";
 import Header from "@/components/header";
 import Footer from "@/components/footer";
 import HowItWorks from "@/components/how-it-works";
+import Pricing from "@/components/pricing";
 
 export default function Home() {
   const [name, setName] = useState<string>("");
@@ -142,6 +143,7 @@ export default function Home() {
         <HowItWorks />
 
         <Logos />
+        <Pricing />
       </section>
 
       <Footer />

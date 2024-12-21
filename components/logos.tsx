@@ -5,12 +5,14 @@ import { containerVariants, itemVariants } from "@/lib/animation-variants";
 import TextBlur from "./ui/text-blur";
 
 const logos = [
-  { href: "https://nextjs.org", src: "/nextjs.svg", alt: "Next.js Logo" },
-  { href: "https://notion.so", src: "/notion.svg", alt: "Notion Logo" },
-  { href: "https://resend.com", src: "/resend.svg", alt: "Resend Logo" },
-  { href: "https://upstash.com", src: "/upstash.svg", alt: "Upstash Logo" },
-  { href: "https://ui.shadcn.com", src: "/shadcn.svg", alt: "shadcn Logo" },
-  { href: "https://vercel.com", src: "/vercel.svg", alt: "Vercel Logo" },
+  { href: "https://nextjs.org", src: "/todoist.svg", alt: "todoist Logo" },
+  { href: "https://notion.so", src: "/jira.svg", alt: "Jira Logo" },
+  { href: "https://resend.com", src: "/linear.svg", alt: "Linear Logo" },
+  { href: "https://upstash.com", src: "/notion.svg", alt: "Notion Logo" },
+  { href: "https://ui.shadcn.com", src: "/things.svg", alt: "Things Logo" },
+  { href: "https://vercel.com", src: "/asana.svg", alt: "Asana Logo" },
+  { href: "https://vercel.com", src: "/clickup.svg", alt: "Clickup Logo" },
+  { href: "https://vercel.com", src: "/monday.svg", alt: "Monday Logo" },
 ];
 
 export default function Logos() {
@@ -37,20 +39,20 @@ export default function Logos() {
 
       <motion.div
         variants={itemVariants}
-        className="mt-4 grid w-full grid-cols-2 items-center justify-center gap-4 md:mt-6 md:grid-cols-3 md:gap-6">
+        className="mt-4 grid w-full grid-cols-2 items-center justify-center gap-4 md:mt-6 md:grid-cols-4 md:gap-6">
         {logos.map((logo, index) => (
           <Link
             key={index}
             href={logo.href}
             rel="noopener noreferrer"
             target="_blank"
-            className="flex h-24 items-center justify-center rounded-lg border bg-zinc-900 p-8 transition-all duration-150 ease-in-out md:hover:border-zinc-700 md:hover:bg-accent">
+            className="flex h-20 items-center justify-center rounded-lg border bg-zinc-900 p-8 transition-all duration-150 ease-in-out md:hover:border-zinc-700 md:hover:bg-accent">
             <Image
               src={logo.src}
               alt={logo.alt}
               width={100}
               height={100}
-              className="h-auto w-32 opacity-85"
+              className="h-auto w-28 opacity-85"
             />
           </Link>
         ))}

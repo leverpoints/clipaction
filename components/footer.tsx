@@ -1,26 +1,35 @@
 import Link from "next/link";
-import { motion } from "framer-motion";
-import { containerVariants, itemVariants } from "@/lib/animation-variants";
+import { Twitter, Linkedin, MessageCircleMore } from "lucide-react";
 
 export default function Footer() {
   return (
-    <motion.div
-      variants={containerVariants}
-      initial="hidden"
-      animate="visible"
-      className="mt-auto flex w-full items-center justify-center gap-1 border-t bg-background p-6 text-muted-foreground md:justify-start">
-      <motion.div variants={itemVariants}>
-        Brought to you by{" "}
+    <footer className="w-full border-t mt-20 py-5">
+      <div className="flex items-center justify-center space-x-6">
         <Link
-          href=""
+          href="https://twitter.com/"
+          target="_blank"
           rel="noopener noreferrer"
-          target="_blank">
-          <span className="text-zinc-300 underline underline-offset-2 transition-all duration-200 ease-linear hover:text-yellow-200">
-            MXL Studio
-          </span>
-          .
+          className="text-muted-foreground hover:text-foreground transition-colors"
+        >
+          <Twitter size={20} />
         </Link>
-      </motion.div>
-    </motion.div>
+        <Link
+          href="https://linkedin.com/"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-muted-foreground hover:text-foreground transition-colors"
+        >
+          <Linkedin size={20} />
+        </Link>
+        <Link
+          href="https://reddit.com/"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-muted-foreground hover:text-foreground transition-colors"
+        >
+          <MessageCircleMore size={20} />
+        </Link>
+      </div>
+    </footer>
   );
 }

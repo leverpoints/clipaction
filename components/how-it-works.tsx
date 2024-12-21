@@ -23,7 +23,7 @@ export default function HowItWorks() {
           <img
             src="/step1.png"
             alt="Take a screenshot"
-            className="w-36 h-36 object-cover rounded-lg"
+            className="w-28 h-28 object-cover rounded-lg"
           />
           <TextBlur
             className="text-xl font-medium"
@@ -39,7 +39,7 @@ export default function HowItWorks() {
           <img
             src="/step2.png"
             alt="AI Processing"
-            className="w-36 h-36 object-cover rounded-lg"
+            className="w-28 h-28 object-cover rounded-lg"
           />
           <TextBlur
             className="text-xl font-medium"
@@ -55,7 +55,7 @@ export default function HowItWorks() {
           <img
             src="/step3.png"
             alt="Manage Tasks"
-            className="w-36 h-36 object-cover rounded-lg"
+            className="w-28 h-28 object-cover rounded-lg"
           />
           <TextBlur
             className="text-xl font-medium"

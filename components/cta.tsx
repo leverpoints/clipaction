@@ -38,7 +38,7 @@ export default function CTA() {
       <motion.div variants={itemVariants}>
         <TextBlur
           className="text-center text-3xl font-medium tracking-tighter sm:text-5xl"
-          text="Create todos by just taking a screenshot"
+          text="Capture todos is as fast as taking a screenshot"
         />
       </motion.div>
 

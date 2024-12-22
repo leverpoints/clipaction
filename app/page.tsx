@@ -1,15 +1,17 @@
 "use client";
 
 import { toast } from "sonner";
-import { useState } from "react";
+import { useState, Suspense, lazy } from "react";
 import CTA from "@/components/cta";
 import Form from "@/components/form";
-import Logos from "@/components/logos";
 import Particles from "@/components/ui/particles";
 import Header from "@/components/header";
-import Footer from "@/components/footer";
-import HowItWorks from "@/components/how-it-works";
-import Pricing from "@/components/pricing";
+
+// Lazy load components that are below the fold
+const HowItWorks = lazy(() => import('@/components/how-it-works'));
+const Logos = lazy(() => import('@/components/logos'));
+const Pricing = lazy(() => import('@/components/pricing'));
+const Footer = lazy(() => import('@/components/footer'));
 
 export default function Home() {
   const [name, setName] = useState<string>("");
@@ -139,20 +141,29 @@ export default function Home() {
           loading={loading}
         />
 
-        <HowItWorks />
+        <Suspense fallback={<div className="h-96 w-full animate-pulse bg-zinc-800/50 rounded-lg" />}>
+          <HowItWorks />
+        </Suspense>
 
-        <Logos />
-        <Pricing />
+        <Suspense fallback={<div className="h-64 w-full animate-pulse bg-zinc-800/50 rounded-lg" />}>
+          <Logos />
+        </Suspense>
+
+        <Suspense fallback={<div className="h-64 w-full animate-pulse bg-zinc-800/50 rounded-lg" />}>
+          <Pricing />
+        </Suspense>
       </section>
 
-      <Footer />
+      <Suspense fallback={null}>
+        <Footer />
+      </Suspense>
 
       <Particles
-        quantityDesktop={350}
-        quantityMobile={100}
+        quantityDesktop={200}
+        quantityMobile={50}
         ease={80}
         color={"#F7FF9B"}
-        refresh
+        refresh={false}
       />
     </main>
   );

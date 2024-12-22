@@ -4,12 +4,30 @@ import { Figtree } from "next/font/google";
 import { Toaster } from "@/components/ui/sonner";
 import { Analytics } from "@vercel/analytics/react";
 
-const FigtreeFont = Figtree({ subsets: ["latin"] });
+const FigtreeFont = Figtree({ 
+  subsets: ["latin"],
+  display: 'swap',
+  preload: true,
+});
 
 export const metadata: Metadata = {
-  title: "ClipAction - Fastest way to capture todos",
-  description:
-    "ClipAction is the fastest way to capture todos. It uses AI to convert your screenshots into actionable todos.",
+  metadataBase: new URL('https://clipaction.costof.capital'),
+  title: 'ClipAction - Convert Screenshots to Todos',
+  description: 'Transform your screenshots into actionable todos with AI',
+  openGraph: {
+    type: 'website',
+    locale: 'en_US',
+    url: 'https://clipaction.costof.capital',
+    title: 'ClipAction - Convert Screenshots to Todos',
+    description: 'Transform your screenshots into actionable todos with AI',
+    siteName: 'ClipAction',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'ClipAction - Convert Screenshots to Todos',
+    description: 'Transform your screenshots into actionable todos with AI',
+    creator: '@costof_capital',
+  },
 };
 
 export default function RootLayout({

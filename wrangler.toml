@@ -8,4 +8,4 @@ command = "npm ci && npm run build"
 build_output_dir = ".wrangler/tmp/pages"
 
 [env.development]
-vars = { ENVIRONMENT = "development" } 
+vars = { ENVIRONMENT = "development" }

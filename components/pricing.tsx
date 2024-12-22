@@ -67,7 +67,7 @@ export default function Pricing() {
     >
       <motion.div variants={itemVariants} className="text-center mb-12">
         <TextBlur
-          className="text-3xl font-medium tracking-tighter sm:text-4xl"
+          className="text-center text-2xl font-medium tracking-tight text-zinc-200 md:text-3xl"
           text="Simple, transparent pricing"
         />
       </motion.div>

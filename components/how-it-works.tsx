@@ -12,8 +12,8 @@ export default function HowItWorks() {
     >
       <motion.div variants={itemVariants} className="text-center mb-12">
         <TextBlur
-          className="text-3xl font-medium tracking-tighter sm:text-4xl"
-          text="How It Works"
+          className="text-center text-2xl font-medium tracking-tight text-zinc-200 md:text-3xl"
+          text="How it works"
         />
       </motion.div>
 
@@ -21,7 +21,7 @@ export default function HowItWorks() {
         {/* Step 1 */}
         <motion.div variants={itemVariants} className="flex flex-col items-center gap-4">
           <img
-            src="/step1.png"
+            src="/step1.svg"
             alt="Take a screenshot"
             className="w-28 h-28 object-cover rounded-lg"
           />
@@ -37,7 +37,7 @@ export default function HowItWorks() {
         {/* Step 2 */}
         <motion.div variants={itemVariants} className="flex flex-col items-center gap-4">
           <img
-            src="/step2.png"
+            src="/step2.svg"
             alt="AI Processing"
             className="w-28 h-28 object-cover rounded-lg"
           />
@@ -53,7 +53,7 @@ export default function HowItWorks() {
         {/* Step 3 */}
         <motion.div variants={itemVariants} className="flex flex-col items-center gap-4">
           <img
-            src="/step3.png"
+            src="/step3.svg"
             alt="Manage Tasks"
             className="w-28 h-28 object-cover rounded-lg"
           />

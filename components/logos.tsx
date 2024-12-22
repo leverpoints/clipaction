@@ -5,14 +5,14 @@ import { containerVariants, itemVariants } from "@/lib/animation-variants";
 import TextBlur from "./ui/text-blur";
 
 const logos = [
-  { href: "https://nextjs.org", src: "/todoist.svg", alt: "todoist Logo" },
-  { href: "https://notion.so", src: "/jira.svg", alt: "Jira Logo" },
-  { href: "https://resend.com", src: "/linear.svg", alt: "Linear Logo" },
-  { href: "https://upstash.com", src: "/notion.svg", alt: "Notion Logo" },
-  { href: "https://ui.shadcn.com", src: "/things.svg", alt: "Things Logo" },
-  { href: "https://vercel.com", src: "/asana.svg", alt: "Asana Logo" },
-  { href: "https://vercel.com", src: "/clickup.svg", alt: "Clickup Logo" },
-  { href: "https://vercel.com", src: "/monday.svg", alt: "Monday Logo" },
+  { href: "https://todoist.com", src: "/todoist.svg", alt: "todoist Logo" },
+  { href: "https://jira.com", src: "/jira.svg", alt: "Jira Logo" },
+  { href: "https://linear.app", src: "/linear.svg", alt: "Linear Logo" },
+  { href: "https://notion.so", src: "/notion.svg", alt: "Notion Logo" },
+  { href: "https://culturedcode.com/things/", src: "/things.svg", alt: "Things Logo" },
+  { href: "https://asana.com", src: "/asana.svg", alt: "Asana Logo" },
+  { href: "https://clickup.com", src: "/clickup.svg", alt: "Clickup Logo" },
+  { href: "https://monday.com", src: "/monday.svg", alt: "Monday Logo" },
 ];
 
 export default function Logos() {
@@ -25,7 +25,7 @@ export default function Logos() {
       <motion.div variants={itemVariants}>
         <TextBlur
           className="text-center text-2xl font-medium tracking-tight text-zinc-200 md:text-3xl"
-          text="Integrate with Your Favorite Todo App"
+          text="Integrate with your favorite todo app"
         />
       </motion.div>
 

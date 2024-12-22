@@ -1,5 +1,5 @@
 import { Resend } from 'resend';
-import WelcomeTemplate from "../../emails";
+import { renderWelcomeEmail } from '../../lib/email-template';
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
@@ -7,12 +7,15 @@ export async function onRequestPost(context) {
   try {
     const { email, firstname } = await context.request.json();
 
+    // Pre-render the email template to HTML
+    const html = renderWelcomeEmail(firstname);
+
     const { data, error } = await resend.emails.send({
       from: "ClipAction <hello@costof.capital>",
       to: [email],
       subject: "Thank you for joining the ClipAction waitlist!",
       reply_to: "hello@costof.capital",
-      react: WelcomeTemplate({ userFirstname: firstname }),
+      html: html
     });
 
     if (error) {

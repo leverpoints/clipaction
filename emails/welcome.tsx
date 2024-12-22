@@ -14,7 +14,7 @@ interface EmailProps {
   userFirstname: string;
 }
 
-export const NotionWaitlistEmail = ({ userFirstname }: EmailProps) => (
+export const WelcomeEmail = ({ userFirstname }: EmailProps) => (
   <Html>
     <Head />
     <Preview>Thanks for Joining the Waitlist, {userFirstname}! 🎉</Preview>
@@ -55,11 +55,11 @@ export const NotionWaitlistEmail = ({ userFirstname }: EmailProps) => (
   </Html>
 );
 
-NotionWaitlistEmail.PreviewProps = {
+WelcomeEmail.PreviewProps = {
   userFirstname: "Tyler",
 } as EmailProps;
 
-export default NotionWaitlistEmail;
+export default WelcomeEmail;
 
 const main = {
   background: "linear-gradient(-225deg, #FFE29F 0%, #FFA99F 48%, #FF719A 100%)",

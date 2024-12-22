@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "tsx scripts/build-emails.ts && next dev & wrangler pages dev . --persist",
-    "build": "tsx scripts/build-emails.ts && next build",
+    "build": "npm install --no-frozen-lockfile && tsx scripts/build-emails.ts && next build",
     "pages:build": "tsx scripts/build-emails.ts && wrangler pages functions build --outdir=.wrangler/tmp/pages",
     "pages:dev": "wrangler pages dev . --persist --compatibility-date=2024-01-01",
     "test:functions": "npm run pages:build && npm run pages:dev",

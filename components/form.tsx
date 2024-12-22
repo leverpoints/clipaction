@@ -64,28 +64,27 @@ export default function Form({
         />
       </motion.div>
       <motion.div variants={itemVariants}>
-        <Select value={currentApp} onValueChange={handleAppChange}>
+        <Select value={currentApp} onValueChange={handleAppChange} required>
           <SelectTrigger className="text-muted-foreground">
-            <SelectValue placeholder="What is your primary todo app?" />
+            <SelectValue placeholder="What is your primary todo app? *" />
           </SelectTrigger>
           <SelectContent>
             <SelectItem value="todoist">Todoist</SelectItem>
-            <SelectItem value="jira">JIRA</SelectItem>
-            <SelectItem value="linear">Linear</SelectItem>
-            <SelectItem value="notion">Notion</SelectItem>
             <SelectItem value="things">Things</SelectItem>
-            <SelectItem value="asana">Asana</SelectItem>
+            <SelectItem value="notion">Notion</SelectItem>
             <SelectItem value="clickup">ClickUp</SelectItem>
-            <SelectItem value="monday">Monday.com</SelectItem>
-            <SelectItem value="ticktick">TickTick</SelectItem>
+            <SelectItem value="linear">Linear</SelectItem>
+            <SelectItem value="jira">Jira</SelectItem>
+            <SelectItem value="asana">Asana</SelectItem>
+            <SelectItem value="monday">Monday</SelectItem>
             <SelectItem value="other">Other</SelectItem>
           </SelectContent>
         </Select>
       </motion.div>
       <motion.div variants={itemVariants}>
-        <Select value={usageType} onValueChange={handleUsageChange}>
+        <Select value={usageType} onValueChange={handleUsageChange} required>
           <SelectTrigger className="text-muted-foreground">
-            <SelectValue placeholder="Do you use your todo app for work or personal?" />
+            <SelectValue placeholder="Do you use your todo app for work or personal? *" />
           </SelectTrigger>
           <SelectContent>
             <SelectItem value="work">Work</SelectItem>

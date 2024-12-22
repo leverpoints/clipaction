@@ -40,7 +40,7 @@ export default function Home() {
   };
 
   const handleSubmit = async () => {
-    if (!name || !email) {
+    if (!name || !email || !currentApp || !usageType) {
       toast.error("Please fill in all fields 😠");
       return;
     }
@@ -98,6 +98,8 @@ export default function Home() {
       success: (data) => {
         setName("");
         setEmail("");
+        setCurrentApp("");
+        setUsageType("");
         return "Thank you for joining the waitlist 🎉";
       },
       error: (error) => {

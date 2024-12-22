@@ -54,9 +54,7 @@ export default function Home() {
 
     const promise = new Promise(async (resolve, reject) => {
       try {
-        // First, attempt to send the email
         const mailResponse = await fetch("/api/mail", {
-          cache: "no-store",
           method: "POST",
           headers: {
             "Content-Type": "application/json",
@@ -65,15 +63,11 @@ export default function Home() {
         });
 
         if (!mailResponse.ok) {
-          if (mailResponse.status === 429) {
-            reject("Rate limited");
-          } else {
-            reject("Email sending failed");
-          }
-          return; // Exit the promise early if mail sending fails
+          const error = await mailResponse.json();
+          reject(error.message || "Failed to send email");
+          return;
         }
 
-        // If email sending is successful, proceed to insert into Notion
         const notionResponse = await fetch("/api/notion", {
           method: "POST",
           headers: {
@@ -88,14 +82,12 @@ export default function Home() {
         });
 
         if (!notionResponse.ok) {
-          if (notionResponse.status === 429) {
-            reject("Rate limited");
-          } else {
-            reject("Notion insertion failed");
-          }
-        } else {
-          resolve({ name });
+          const error = await notionResponse.json();
+          reject(error.message || "Failed to save to Notion");
+          return;
         }
+
+        resolve({ name });
       } catch (error) {
         reject(error);
       }

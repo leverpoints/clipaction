@@ -3,10 +3,11 @@
   "version": "1.5.0",
   "private": true,
   "scripts": {
-    "dev": "next dev & wrangler pages dev .",
-    "build": "next build && tsx scripts/build-emails.ts",
-    "pages:build": "wrangler pages functions build --outdir=.wrangler/tmp/pages",
-    "pages:dev": "wrangler pages dev . --compatibility-date=2024-01-01",
+    "dev": "tsx scripts/build-emails.ts && next dev & wrangler pages dev . --persist",
+    "build": "tsx scripts/build-emails.ts && next build",
+    "pages:build": "tsx scripts/build-emails.ts && wrangler pages functions build --outdir=.wrangler/tmp/pages",
+    "pages:dev": "wrangler pages dev . --persist --compatibility-date=2024-01-01",
+    "test:functions": "npm run pages:build && npm run pages:dev",
     "start": "next start",
     "lint": "next lint",
     "email": "email dev"
@@ -49,6 +50,7 @@
     "prettier": "^3.3.3",
     "prettier-plugin-tailwindcss": "^0.6.6",
     "tailwindcss": "^3.4.1",
+    "tsx": "^4.19.2",
     "typescript": "^5"
   }
 }

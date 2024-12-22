@@ -5,20 +5,14 @@ interface Env {
   RESEND_API_KEY: string;
 }
 
-interface WelcomeTemplateType {
-  default: string;
-}
-
-const template = welcomeTemplate as unknown as WelcomeTemplateType;
-
 export async function onRequestPost(context: { request: Request; env: Env }) {
   try {
     const { email, firstname } = await context.request.json();
     
     const resend = new Resend(context.env.RESEND_API_KEY);
 
-    // Replace the placeholder with actual firstname
-    const html = template.default.replace('{{firstname}}', firstname);
+    // Use the template directly (no need for .default)
+    const html = welcomeTemplate.replace('{{firstname}}', firstname);
 
     const { data, error } = await resend.emails.send({
       from: "ClipAction <hello@costof.capital>",

@@ -11,8 +11,7 @@ export async function onRequestPost(context: { request: Request; env: Env }) {
     
     const resend = new Resend(context.env.RESEND_API_KEY);
 
-    // Use the template directly (no need for .default)
-    const html = welcomeTemplate.replace('{{firstname}}', firstname);
+    const html = welcomeTemplate.replace(/\{\{firstname\}\}/g, firstname);
 
     const { data, error } = await resend.emails.send({
       from: "ClipAction <hello@costof.capital>",

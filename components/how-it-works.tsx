@@ -1,6 +1,7 @@
+import Image from "next/image";
 import { motion } from "framer-motion";
-import { containerVariants, itemVariants } from "@/lib/animation-variants";
 import TextBlur from "./ui/text-blur";
+import { containerVariants, itemVariants } from "@/lib/animation-variants";
 
 export default function HowItWorks() {
   return (
@@ -20,10 +21,12 @@ export default function HowItWorks() {
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
         {/* Step 1 */}
         <motion.div variants={itemVariants} className="flex flex-col items-center gap-4">
-          <img
+          <Image
             src="/step1.svg"
             alt="Take a screenshot"
-            className="w-28 h-28 object-cover rounded-lg"
+            width={112}
+            height={112}
+            className="object-cover rounded-lg"
           />
           <TextBlur
             className="text-xl font-medium"
@@ -36,10 +39,12 @@ export default function HowItWorks() {
 
         {/* Step 2 */}
         <motion.div variants={itemVariants} className="flex flex-col items-center gap-4">
-          <img
+          <Image
             src="/step2.svg"
             alt="AI Processing"
-            className="w-28 h-28 object-cover rounded-lg"
+            width={112}
+            height={112}
+            className="object-cover rounded-lg"
           />
           <TextBlur
             className="text-xl font-medium"
@@ -52,10 +57,12 @@ export default function HowItWorks() {
 
         {/* Step 3 */}
         <motion.div variants={itemVariants} className="flex flex-col items-center gap-4">
-          <img
+          <Image
             src="/step3.svg"
             alt="Manage Tasks"
-            className="w-28 h-28 object-cover rounded-lg"
+            width={112}
+            height={112}
+            className="object-cover rounded-lg"
           />
           <TextBlur
             className="text-xl font-medium"

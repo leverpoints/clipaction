@@ -5,15 +5,11 @@ interface Env {
   NOTION_DATABASE_ID: string;
 }
 
-const notion = new Client({
-  auth: process.env.NOTION_API_KEY,
-});
-
 export async function onRequestPost(context: { request: Request; env: Env }) {
   try {
     const { name, email, currentApp, usageType } = await context.request.json();
     
-    // Initialize Notion client with the correct auth
+    // Initialize Notion client with the environment variable
     const notion = new Client({
       auth: context.env.NOTION_API_KEY
     });

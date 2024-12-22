@@ -1,14 +1,18 @@
 import { Resend } from 'resend';
 import { renderWelcomeEmail } from '../../lib/email-template';
 
+interface Env {
+  RESEND_API_KEY: string;
+}
+
 const resend = new Resend(process.env.RESEND_API_KEY);
 
-export async function onRequestPost(context) {
+export async function onRequestPost(context: { request: Request; env: Env }) {
   try {
     const { email, firstname } = await context.request.json();
 
     // Pre-render the email template to HTML
-    const html = renderWelcomeEmail(firstname);
+    const html = await renderWelcomeEmail(firstname);
 
     const { data, error } = await resend.emails.send({
       from: "ClipAction <hello@costof.capital>",

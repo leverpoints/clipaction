@@ -88,8 +88,8 @@ export default function Home() {
         }
 
         resolve({ name });
-      } catch (error) {
-        reject(error);
+      } catch (error: unknown) {
+        reject(error instanceof Error ? error.message : 'Unknown error occurred');
       }
     });
 

@@ -13,6 +13,11 @@ export async function onRequestPost(context: { request: Request; env: Env }) {
   try {
     const { name, email, currentApp, usageType } = await context.request.json();
     
+    // Initialize Notion client with the correct auth
+    const notion = new Client({
+      auth: context.env.NOTION_API_KEY
+    });
+
     await notion.pages.create({
       parent: {
         database_id: context.env.NOTION_DATABASE_ID,
@@ -38,6 +43,7 @@ export async function onRequestPost(context: { request: Request; env: Env }) {
       headers: { 'Content-Type': 'application/json' },
     });
   } catch (error) {
+    console.error('Notion API Error:', error);
     return new Response(JSON.stringify({ error: "Internal Server Error" }), {
       status: 500,
       headers: { 'Content-Type': 'application/json' },

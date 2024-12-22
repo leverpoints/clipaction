@@ -1,2 +1,8 @@
+name = "clipaction-waitlist"
+compatibility_date = "2024-01-01"
+
+[pages]
+directory = ".wrangler/tmp/pages"
+
 [env.development]
 vars = { ENVIRONMENT = "development" } 

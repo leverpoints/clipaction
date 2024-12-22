@@ -1,25 +1,31 @@
 import { Resend } from 'resend';
-import { renderWelcomeEmail } from '../../lib/email-template';
+import welcomeTemplate from '../templates/welcome.html' assert { type: 'text' };
 
 interface Env {
   RESEND_API_KEY: string;
 }
 
-const resend = new Resend(process.env.RESEND_API_KEY);
+interface WelcomeTemplateType {
+  default: string;
+}
+
+const template = welcomeTemplate as unknown as WelcomeTemplateType;
 
 export async function onRequestPost(context: { request: Request; env: Env }) {
   try {
     const { email, firstname } = await context.request.json();
+    
+    const resend = new Resend(context.env.RESEND_API_KEY);
 
-    // Pre-render the email template to HTML
-    const html = await renderWelcomeEmail(firstname);
+    // Replace the placeholder with actual firstname
+    const html = template.default.replace('{{firstname}}', firstname);
 
     const { data, error } = await resend.emails.send({
       from: "ClipAction <hello@costof.capital>",
       to: [email],
       subject: "Thank you for joining the ClipAction waitlist!",
       reply_to: "hello@costof.capital",
-      html: html
+      html
     });
 
     if (error) {
@@ -34,6 +40,7 @@ export async function onRequestPost(context: { request: Request; env: Env }) {
       headers: { 'Content-Type': 'application/json' },
     });
   } catch (error) {
+    console.error('Mail API Error:', error);
     return new Response(JSON.stringify({ error: "Failed to send email" }), {
       status: 500,
       headers: { 'Content-Type': 'application/json' },

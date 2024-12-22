@@ -3,8 +3,10 @@
   "version": "1.5.0",
   "private": true,
   "scripts": {
-    "dev": "next dev & wrangler pages dev --compatibility-date=2024-01-01 .",
-    "build": "next build && tsc lib/email-template.ts --jsx react",
+    "dev": "next dev & wrangler pages dev .",
+    "build": "next build && tsx scripts/build-emails.ts",
+    "pages:build": "wrangler pages functions build --outdir=.wrangler/tmp/pages",
+    "pages:dev": "wrangler pages dev . --compatibility-date=2024-01-01",
     "start": "next start",
     "lint": "next lint",
     "email": "email dev"
